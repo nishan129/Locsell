@@ -3,7 +3,7 @@ import LargeCards from '@/components/backoffice/LargeCards';
 import SmallCards from '@/components/backoffice/SmallCards';
 import DashboardCharts from '@/components/backoffice/DashboardCharts';
 import React from 'react';
-import CustomDataTable from '@/components/backoffice/CustomDataTable';
+// import CustomDataTable from '@/components/backoffice/CustomDataTable';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/authOptions';
 import KiranaDashboard from '@/components/backoffice/KiranaDashboard';
