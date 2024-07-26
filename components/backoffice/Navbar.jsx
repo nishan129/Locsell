@@ -17,10 +17,10 @@ import { useSession } from 'next-auth/react';
 import UserAvtar from './UserAvtar';
 
 export default function Navbar({setShowSidebar,showSidebar}) {
-  const {data:session, status} = useSession()
-  if(status === 'loading') {
-    return <p>Loading...</p>
-  } 
+  // const {data:session, status} = useSession()
+  // if(status === 'loading') {
+  //   return <p>Loading...</p>
+  // } 
   return (
     <div className='flex fixed top-0 bg-green-300 items-center justify-between dark:bg-slate-800 text-slate-50 h-16  py-8  w-full px-8 z-50 sm:pr-[20rem]'>
       <Link href={"/"} className='sm:hidden dark:text-slate-50 text-slate-900'>
@@ -113,7 +113,7 @@ export default function Navbar({setShowSidebar,showSidebar}) {
           </DropdownMenuContent>
         </DropdownMenu>
        {/* {status === "authenticated" &<UserAvtar user={session?.user} />} */}
-       <UserAvtar user={session?.user} />
+       {/* <UserAvtar user={session?.user} /> */}
       </div>
     </div>
   );

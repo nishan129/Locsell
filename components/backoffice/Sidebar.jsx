@@ -20,12 +20,12 @@ export default function Sidebar({showSidebar, setShowSidebar}) {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState(false);
   const router = useRouter();
-  const {data:session, status } = useSession()
-  if (status === "loading"){
-    return <p>Loading...</p>
-  }
+  // const {data:session, status } = useSession()
+  // if (status === "loading"){
+  //   return <p>Loading...</p>
+  // }
 
-  const role = session?.user.role;
+  // const role = session?.user.role;
 
   async function handleLogout() {
     await signOut({ redirect: false });
@@ -49,25 +49,25 @@ export default function Sidebar({showSidebar, setShowSidebar}) {
     { title: "Coupons", icon: ScanSearch, href: "/dashboard/coupons" },
     { title: "Store Banners", icon: MonitorPlay, href: "/dashboard/banners" },
   ];
-  if (role === "WHOLESALER"){
-    sidebarLinks = [
-      // { title: "Orders", icon: Truck, href: "/dashboard/orders" },
-      { title: "Sales", icon: Truck, href: "/dashboard/sales" },
-      { title: "Markets", icon: Building2, href: "/dashboard/markets" },
-      {title: "Wallet", icon: IndianRupee, href: "/dashboard/wallet"},
-      { title: "Settings", icon: Settings, href: "/dashboard/settings" },
-      { title: "Online Store", icon: Store, href: "/" },];
-    catalogueLinks = [
-        { title: "Products", icon: Boxes, href: "/dashboard/products" },
-        // { title: "Coupons", icon: ScanSearch, href: "/dashboard/coupons" },
-      ];
-  } if(role === "KIRANA"){
-    sidebarLinks = [
-      { title: "Orders", icon: Truck, href: "/dashboard/orders" },
-      { title: "Profile", icon: FaUser, href: "/dashboard/profile" },
-      { title: "Online Store", icon: Store, href: "/" },]
-      catalogueLinks = []
-  }
+  // if (role === "WHOLESALER"){
+  //   sidebarLinks = [
+  //     // { title: "Orders", icon: Truck, href: "/dashboard/orders" },
+  //     { title: "Sales", icon: Truck, href: "/dashboard/sales" },
+  //     { title: "Markets", icon: Building2, href: "/dashboard/markets" },
+  //     {title: "Wallet", icon: IndianRupee, href: "/dashboard/wallet"},
+  //     { title: "Settings", icon: Settings, href: "/dashboard/settings" },
+  //     { title: "Online Store", icon: Store, href: "/" },];
+  //   catalogueLinks = [
+  //       { title: "Products", icon: Boxes, href: "/dashboard/products" },
+  //       // { title: "Coupons", icon: ScanSearch, href: "/dashboard/coupons" },
+  //     ];
+  // } if(role === "KIRANA"){
+  //   sidebarLinks = [
+  //     { title: "Orders", icon: Truck, href: "/dashboard/orders" },
+  //     { title: "Profile", icon: FaUser, href: "/dashboard/profile" },
+  //     { title: "Online Store", icon: Store, href: "/" },]
+  //     catalogueLinks = []
+  // }
   return (
     <div className={showSidebar?" dark:bg-slate-800 mt-8 sm:mt-0 bg-slate-50 space-y-0 w-60 h-screen dark:text-slate-50 text-slate-800 fixed left-0 top-0 shadow-md overflow-y-scroll": "hidden sm:mt-0  sm:block dark:bg-slate-800 bg-slate-50 space-y-0 w-60 h-screen dark:text-slate-50 text-slate-800 fixed left-top-0 shadow-md overflow-y-scroll"}>
       <Link onClick={() => setShowSidebar(false)} href="/dashboard" className="px-4 py-2">

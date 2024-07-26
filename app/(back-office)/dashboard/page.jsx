@@ -11,19 +11,19 @@ import WholesalerDashgboard from '@/components/backoffice/WholesalerDashgboard';
 import { getData } from '@/lib/getData';
 
 export default async function page() {
-  const session = await getServerSession(authOptions)
-  const role  = session?.user?.role;
+  // const session = await getServerSession(authOptions)
+  // const role  = session?.user?.role;
   const sales = await getData("sale")
   const products = await getData("products");
   const orders  = await getData("orders");
   
   
-  if(role==="KIRANA"){
-    return <KiranaDashboard />;
-  }
-  if (role==="WHOLESALER"){
-    return <WholesalerDashgboard />;
-  }
+  // if(role==="KIRANA"){
+  //   return <KiranaDashboard />;
+  // }
+  // if (role==="WHOLESALER"){
+  //   return <WholesalerDashgboard />;
+  // }
   return (
     <div>
         <Heading title="Dashboard Overview"/>
