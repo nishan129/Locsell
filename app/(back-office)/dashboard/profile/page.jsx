@@ -1,7 +1,13 @@
+"use client"
+import { authOptions } from '@/lib/authOptions'
+import { getServerSession } from 'next-auth'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+    const session = await getServerSession(authOptions);
+    if(!session) return
+    const {user} = session;
   return (
-    <div>Profile</div>
+    <div>Welcome {user?.name}</div>
   )
 }
